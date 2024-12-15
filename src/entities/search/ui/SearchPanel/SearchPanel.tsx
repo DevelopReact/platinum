@@ -12,6 +12,7 @@ import styles from './SearchPanel.module.scss';
 import { useGetProductsQuery } from '@/entities/search/api/searchAPI';
 import { ProductsList } from '../ProductsList';
 import { useDebounce } from '@/shared/libs/hooks/useDebounce';
+import { Loader } from '@/shared/ui/Loader';
 
 interface SearchPanelProps {}
 
@@ -21,7 +22,7 @@ export const SearchPanel: FC<SearchPanelProps> = ({}) => {
 
   const debounceSearchValue = useDebounce(searchValue, 1500);
 
-  const { data, isSuccess } = useGetProductsQuery(undefined, {
+  const { data, isSuccess, isLoading } = useGetProductsQuery(undefined, {
     skip: debounceSearchValue.length < 3 || !showDropdown
   });
 
@@ -46,7 +47,7 @@ export const SearchPanel: FC<SearchPanelProps> = ({}) => {
       <div className={styles.search_panel_content}>
         <div
           className={classNames(styles.wrapper_search_panel_input, {
-            [styles.onFocusBorderInput]: isSuccess
+            [styles.onFocusBorderInput]: isSuccess && filteredData?.length != 0 
           })}
         >
           <div className={styles.search_panel_input}>
@@ -58,9 +59,10 @@ export const SearchPanel: FC<SearchPanelProps> = ({}) => {
               onChange={onInputChange}
               value={searchValue}
             />
+            {isLoading && <Loader/>}
             <SearchIcon />
           </div>
-          {isSuccess && showDropdown && <ProductsList data={filteredData!} />}
+          {isSuccess && showDropdown && filteredData?.length != 0 && <ProductsList data={filteredData!} />}
         </div>
         <div className={styles.search_panel_icon}>
           <UserIcon />
