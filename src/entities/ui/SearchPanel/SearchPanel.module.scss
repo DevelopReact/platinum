@@ -1,0 +1,53 @@
+@use '@/app/styles/variables/fontColor.scss' as *;
+@use '@/app/styles/variables/backgroundColor.scss' as *;
+@use '@/app/styles/mixins/mixins.scss' as *;
+
+.SearchPanel {
+  width: 100%;
+  height: 100px;
+  background-color: $mainOpacityColor;
+  display: flex;
+}
+
+.search_panel_content {
+  width: 90%;
+  margin: 0 auto;
+  @include FlexContainer(space-between);
+}
+
+.wrapper_search_panel_input {
+  width: 80%;
+  background-color: $mainBackgroundColor;
+  border-radius: 12px;
+  position: relative;
+}
+
+.onFocusBorderInput {
+  border-radius: 12px 12px 0 0;
+}
+
+.search_panel_input {
+  width: 100%;
+  padding: 10px 20px;
+  @include FlexContainer();
+
+  input {
+    width: 100%;
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+.search_panel_icon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.3s;
+
+  svg {
+    fill: $thirdAccentColor;
+  }
+}

@@ -1,0 +1,14 @@
+@use './app/styles/fonts/fonts.scss';
+@use './app/styles/reset/reset.scss';
+@use '@/app/styles/variables/backgroundColor.scss' as *;
+
+body {
+  background: linear-gradient(
+      30.95deg,
+      #1e71be -50.07%,
+      rgba(13, 19, 24, 0) 25.73%
+    ),
+    linear-gradient(-170.95deg, #1e71be -40.07%, rgba(13, 19, 24, 0) 30.73%)
+      no-repeat;
+  background-color: $secondaryBackgroundColor;
+}

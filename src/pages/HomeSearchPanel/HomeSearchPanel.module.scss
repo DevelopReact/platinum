@@ -1,0 +1,32 @@
+@use '@/app/styles/variables/fontColor.scss' as *;
+@use '@/app/styles/variables/backgroundColor.scss' as *;
+@use '@/app/styles/mixins/mixins.scss' as *;
+
+.HomeSearchPanel {
+  width: 100%;
+  flex: 1;
+  background: url('https://platinumchetvertinovskaya.com.ua/catalog/view/theme/platinum/img/main-page/intro/image.webp')
+    80% 100px / contain no-repeat;
+  position: relative;
+}
+
+.add_to_basket {
+  width: 200px;
+  height: 50px;
+  border: 1px solid $secondaryAccentColor;
+  border-radius: 8px;
+  @include FlexContainer();
+  color: $secondaryTextColor;
+  position: absolute;
+  left: 30%;
+  right: 70%;
+  top: 80%;
+}
+
+.add_to_basket:hover {
+  cursor: pointer;
+  color: $thirdAccentColor;
+  border: 1px solid $thirdAccentColor;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
