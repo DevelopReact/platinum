@@ -1,0 +1,28 @@
+@use "@/app/styles/variables/fontColor.scss" as *;
+@use "@/app/styles/variables/backgroundColor.scss" as *;
+@use "@/app/styles/mixins/mixins.scss" as *;
+
+.CategoryItem {
+  width: 99%;
+  padding: 10px;
+  border-radius: 5px;
+  @include FlexContainer(start);
+  gap: 10px;
+}
+
+.CategoryItem:hover {
+  cursor: pointer;
+  background-color: $mainOpacityColor;
+}
+
+.icon_category_item {
+  width: 15px;
+  height: 15px;
+  @include FlexContainer;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.title_category_item {
+  @include FlexContainer;
+}

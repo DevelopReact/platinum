@@ -3,6 +3,7 @@
 @use '@/app/styles/mixins/mixins.scss' as *;
 
 .ProductItem {
+  width: 99%;
   padding: 10px;
   border-radius: 5px;
   @include FlexContainer(start);

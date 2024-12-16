@@ -87,15 +87,13 @@ export interface IProduct {
 }
 
 export interface ICategories {
-  item: {
-    id: number;
-    parent_id: number;
-    name: string;
-    slug: string;
-    description: string;
-    count: number;
-    language_code: string;
-  };
+  id: number;
+  parent_id: number;
+  name: string;
+  slug: string;
+  description: string;
+  count: number;
+  language_code: string;
 }
 
 export interface IProductsResponse {
