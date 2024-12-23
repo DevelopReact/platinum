@@ -12,6 +12,7 @@ const productSlice = createSlice({
     },
 
     updateProducts(state, action: PayloadAction<IProduct[]>) {
+      state;
       return action.payload;
     }
   }
