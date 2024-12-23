@@ -15,9 +15,10 @@ export const CartList: FC<CartListProps> = ({}) => {
 
   const total = productsCart
     ?.map(({ max_price, min_price, count }) =>
-      Number(((min_price || max_price) * count!).toFixed(2))
+      Number((min_price || max_price) * count!)
     )
-    .reduce((a, b) => a + b, 0);
+    .reduce((a, b) => a + b, 0)
+    .toFixed(2);
 
   return (
     <div className={styles.CartList}>
