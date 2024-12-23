@@ -43,6 +43,10 @@
   }
 }
 
+.search_panel_icon {
+  position: relative;
+}
+
 .search_panel_icon:hover {
   cursor: pointer;
   transform: scale(1.1);

@@ -1,9 +1,18 @@
 // react
 import { FC } from 'react';
+import { useDispatch } from 'react-redux';
+//api
+import { useLazyGetProductSlugQuery } from '../../api/searchAPI';
+//slices
+import { searchPanelAction } from '../../model/slices/searchPanelSlice';
+import { productAction } from '../../model/slices/productSlice';
+//ui
+import { Loader } from '@/shared/ui/Loader';
 // styles
 import styles from './ProductItem.module.scss';
 
 interface ProductItemProps {
+  slug: string;
   name: string;
   img: string;
   max_price: number;
@@ -11,13 +20,44 @@ interface ProductItemProps {
 }
 
 export const ProductItem: FC<ProductItemProps> = ({
+  slug,
   name,
   img,
   max_price,
   min_price
 }) => {
+  const dispatch = useDispatch();
+
+  const [triggerProductSlugQuery, { isLoading }] = useLazyGetProductSlugQuery();
+
+  const onClickAddToCart = async () => {
+    await triggerProductSlugQuery(slug)
+      .unwrap()
+      .then((data) => {
+        if (data) {
+          dispatch(
+            productAction.setProducts({
+              ...data,
+              count: 1
+            })
+          );
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        dispatch(searchPanelAction.setShowDropDown(false));
+        dispatch(searchPanelAction.setSearchValue(''));
+      });
+  };
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
-    <div className={styles.ProductItem}>
+    <div className={styles.ProductItem} onClick={onClickAddToCart}>
       <div className={styles.icon_product_item}>
         <img src={img} />
       </div>

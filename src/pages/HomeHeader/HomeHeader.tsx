@@ -1,15 +1,23 @@
 // react
 import { FC } from 'react';
+import { useNavigate } from 'react-router';
+//constants
+import { getHomePage } from '@/shared/libs/constants/routes';
 // styles
 import styles from './HomeHeader.module.scss';
 
 interface HomeHeaderProps {}
 
 export const HomeHeader: FC<HomeHeaderProps> = ({}) => {
+  const navigate = useNavigate();
+
+  const onClickNavigateToHomePage = () => {
+    navigate(getHomePage());
+  };
   return (
     <div className={styles.HomeHeader}>
       <div className={styles.home_content}>
-        <div className={styles.header_logo}>
+        <div className={styles.header_logo} onClick={onClickNavigateToHomePage}>
           <a href='#' className={styles.header_logo_link}>
             <img
               src='https://platinumchetvertinovskaya.com.ua/image/catalog/platinum-logo.png'

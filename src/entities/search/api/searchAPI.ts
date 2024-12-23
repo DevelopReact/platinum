@@ -1,33 +1,47 @@
 //api
-import { jsonPlaceholderAPI } from "@/shared/api/jsonPlaceholderAPI";
+import { jsonPlaceholderAPI } from '@/shared/api/jsonPlaceholderAPI';
 //types
 import {
   ICategoriesResponse,
-  IProductsResponse,
-} from "../model/types/productTypes";
+  IProduct,
+  IProductsResponse
+} from '../model/types/productTypes';
 
 const searchAPI = jsonPlaceholderAPI.injectEndpoints({
   endpoints: (build) => ({
     getCategories: build.query<ICategoriesResponse, void>({
       query: () => ({
-        url: "/categories",
-        method: "GET",
+        url: '/categories',
+        method: 'GET'
       }),
       transformResponse: (response: { data: ICategoriesResponse }) =>
         response?.data,
-      providesTags: ["Categories"],
+      providesTags: ['Categories']
     }),
 
     getProducts: build.query<IProductsResponse, void>({
       query: () => ({
-        url: "/products",
-        method: "GET",
+        url: '/products',
+        method: 'GET'
       }),
       transformResponse: (response: { data: IProductsResponse }) =>
         response?.data,
-      providesTags: ["Products"],
+      providesTags: ['Products']
     }),
-  }),
+
+    getProductSlug: build.query<IProduct, string>({
+      query: (slug) => ({
+        url: `/products/${slug}`,
+        method: 'GET'
+      }),
+      transformResponse: (response: { data: any }) => response?.data.item, //item does not exist in IProduct
+      providesTags: ['Products']
+    })
+  })
 });
 
-export const { useGetCategoriesQuery, useGetProductsQuery } = searchAPI;
+export const {
+  useGetCategoriesQuery,
+  useGetProductsQuery,
+  useLazyGetProductSlugQuery
+} = searchAPI;

@@ -84,6 +84,7 @@ export interface IProduct {
       ];
     }
   ];
+  count?: number;
 }
 
 export interface ICategories {

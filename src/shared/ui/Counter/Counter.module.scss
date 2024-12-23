@@ -1,0 +1,15 @@
+@use '@/app/styles/variables/fontColor.scss' as *;
+@use '@/app/styles/variables/backgroundColor.scss' as *;
+@use '@/app/styles/mixins/mixins.scss' as *;
+
+.Counter {
+  width: 20px;
+  height: 20px;
+  border: 2px solid $mainBackgroundColor;
+  border-radius: 50%;
+  color: $mainBackgroundColor;
+  @include FlexContainer;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}

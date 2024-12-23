@@ -10,8 +10,7 @@ interface HomeSearchPanelProps {}
 export const HomeSearchPanel: FC<HomeSearchPanelProps> = ({}) => {
   return (
     <div className={styles.HomeSearchPanel}>
-      <SearchPanel/>
-      <div className={styles.add_to_basket}>Add to basket</div>
+      <SearchPanel />
     </div>
   );
 };

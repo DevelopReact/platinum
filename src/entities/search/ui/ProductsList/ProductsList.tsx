@@ -1,15 +1,15 @@
 // react
-import { FC } from "react";
+import { FC } from 'react';
 //ui
-import { ProductItem } from "../ProductItem";
-import { CategoryItem } from "../CategoryItem";
+import { ProductItem } from '../ProductItem';
+import { CategoryItem } from '../CategoryItem';
 //types
 import {
   ICategories,
-  IProduct,
-} from "@/entities/search/model/types/productTypes";
+  IProduct
+} from '@/entities/search/model/types/productTypes';
 // styles
-import styles from "./ProductsList.module.scss";
+import styles from './ProductsList.module.scss';
 
 interface ProductsListProps {
   dataProducts: IProduct[];
@@ -18,7 +18,7 @@ interface ProductsListProps {
 
 export const ProductsList: FC<ProductsListProps> = ({
   dataProducts,
-  dataCategories,
+  dataCategories
 }) => {
   return (
     <div className={styles.ProductsList}>
@@ -30,15 +30,18 @@ export const ProductsList: FC<ProductsListProps> = ({
       </div>
       <div className={styles.titleList}>Products:</div>
       <div className={styles.content_product_list}>
-        {dataProducts?.map(({ id, name, thumbnail, max_price, min_price }) => (
-          <ProductItem
-            key={id}
-            name={name}
-            img={thumbnail.src}
-            max_price={max_price}
-            min_price={min_price}
-          />
-        ))}
+        {dataProducts?.map(
+          ({ id, name, thumbnail, max_price, min_price, slug }) => (
+            <ProductItem
+              key={id}
+              slug={slug}
+              name={name}
+              img={thumbnail.src}
+              max_price={max_price}
+              min_price={min_price}
+            />
+          )
+        )}
       </div>
     </div>
   );
