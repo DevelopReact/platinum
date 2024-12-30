@@ -3,8 +3,8 @@ import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
 //ui
 import { PageLayout } from '@/app/layouts/ui/PageLayout';
-import { CartPage } from '@/pages/cart/ui/CartPage';
-import { HomePage } from '@/pages/home/ui/HomePage';
+import { CartPage } from '../../../../../pages/cart/ui/CartPage/CartPage';
+import { HomePage } from '../../../../../pages/home/ui/HomePage/HomePage';
 //constants
 import { getCartPage, getHomePage } from '@/shared/libs/constants/routes';
 
