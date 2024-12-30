@@ -1,0 +1,16 @@
+@use '@/app/styles/variables/fontColor.scss' as *;
+@use '@/app/styles/variables/backgroundColor.scss' as *;
+@use '@/app/styles/mixins/mixins.scss' as *;
+
+.CartList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.total {
+  @include FlexContainer(flex-end);
+  gap: 20px;
+  padding: 0 25px 0 0;
+}

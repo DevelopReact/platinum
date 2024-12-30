@@ -1,13 +1,11 @@
 //api
 import { jsonPlaceholderAPI } from '@/shared/api/jsonPlaceholderAPI';
 //types
-import { IProduct } from '@/entities/search/model/types/productTypes';
-import { ISearchPanel } from '@/entities/search/model/types/searchPanelTypes';
+import { ProductStateSchema } from '@/entities/products/model/types/productTypes';
 
 export interface StateSchema {
   [jsonPlaceholderAPI.reducerPath]: ReturnType<
     typeof jsonPlaceholderAPI.reducer
   >;
-  products: IProduct[];
-  searchPanel: ISearchPanel;
+  products: ProductStateSchema;
 }

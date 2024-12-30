@@ -1,0 +1,18 @@
+@use '@/app/styles/variables/fontColor.scss' as *;
+@use '@/app/styles/variables/backgroundColor.scss' as *;
+@use '@/app/styles/mixins/mixins.scss' as *;
+
+.CategoryList {
+  width: 100%;
+  overflow: auto;
+  background-color: $fourthAccentColor;
+  padding: 10px 0 0 10px;
+}
+
+.titleList {
+  width: 99%;
+  padding: 0 10px 5px 10px;
+  border-bottom: 2px solid $thirdAccentColor;
+  color: $mainOpacityColor;
+  font-weight: bold;
+}
