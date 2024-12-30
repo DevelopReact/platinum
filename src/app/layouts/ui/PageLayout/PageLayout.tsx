@@ -2,7 +2,7 @@
 import { FC } from 'react';
 import { Outlet } from 'react-router';
 //ui
-import { HomeHeader } from '@/pages/home/ui/HomePage/HomeHeader';
+import { HomeHeader } from '@/pages/home/ui/HomeHeader';
 // styles
 import styles from './PageLayout.module.scss';
 

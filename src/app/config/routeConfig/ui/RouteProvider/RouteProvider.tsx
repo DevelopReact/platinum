@@ -3,10 +3,10 @@ import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
 //ui
 import { PageLayout } from '@/app/layouts/ui/PageLayout';
-import { CartPage } from '@/pages/cart';
+import { CartPage } from '@/pages/cart/ui/CartPage';
+import { HomePage } from '@/pages/home/ui/HomePage';
 //constants
 import { getCartPage, getHomePage } from '@/shared/libs/constants/routes';
-import { HomePage } from '@/pages/home';
 
 export const RouteProvider: FC = ({}) => {
   return (

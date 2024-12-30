@@ -1,7 +1,7 @@
 // react
 import { FC } from 'react';
 //ui
-import { HomeSearchPanel } from '../HomePage/HomeSearchPanel';
+import { HomeSearchPanel } from '../HomeSearchPanel';
 // styles
 import styles from './HomePage.module.scss';
 
